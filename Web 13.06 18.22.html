@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Circle Group</title>
+  <style>
+  html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: white;
+      background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover fixed no-repeat;
+      scroll-behavior: smooth;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      color: white;
+      background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover fixed no-repeat;
+      scroll-behavior: smooth;
+    }
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      background: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .intro.fade-out {
+      animation: fadeOut 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    .logo {
+      margin-bottom: 20px;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideUp 1s ease 0.3s forwards;
+    }
+
+    .intro p {
+      font-size: 1.5rem;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeText 1s ease 0.8s forwards;
+    }
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeText {
+      to {
+        opacity: 1;
+      }
+    }
+
+    section {
+      padding: 100px 20px;
+      backdrop-filter: blur(6px);
+      background-color: rgba(0, 0, 0, 0.4);
+      margin: 30px auto;
+      border-radius: 20px;
+      max-width: 800px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    p, li, a {
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: disc inside;
+    }
+
+    a {
+      color: #90cdf4;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Circle Group</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      color: white;
+      background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover fixed no-repeat;
+      scroll-behavior: smooth;
+    }
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      background: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      text-align: center;
+      font-size: 1.4rem;
+      padding: 20px;
+      opacity: 1;
+      transition: opacity 1.5s ease;
+    }
+
+    #intro.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #mainContent {
+      inset: 0;
+      background: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      text-align: center;
+      font-size: 1.4rem;
+      padding: 20px;
+	  opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #mainContent.visible {
+      opacity: 1;
+    }
+	
+	#day1 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day1.visible {
+      opacity: 1;
+    }
+
+	#day2 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day2.visible {
+      opacity: 1;
+    }
+
+	#day3 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day3.visible {
+      opacity: 1;
+    }
+
+	#day4 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day4.visible {
+      opacity: 1;
+    }
+
+	#day5 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day5.visible {
+      opacity: 1;
+    }
+	
+
+	#day6 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day6.visible {
+      opacity: 1;
+    }
+
+	#day7 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day7.visible {
+      opacity: 1;
+    }
+
+	#day8 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day8.visible {
+      opacity: 1;
+    }
+
+	#day9 {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #day9.visible {
+      opacity: 1;
+    }
+
+    section {
+      padding: 160px 20px 60px;
+      backdrop-filter: blur(6px);
+      background-color: rgba(0, 0, 0, 0.4);
+      margin: 0 auto;
+      border-radius: 20px;
+      max-width: 800px;
+    }
+
+    .logo svg {
+      margin-bottom: 20px;
+    }
+
+    .date-box {
+      background-color: rgba(0,0,0,0.3);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      padding: 16px 16px 16px 30px;
+      max-width: 260px;
+      margin: 0 auto 32px auto;
+      text-align: left;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform 0.3s ease;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<!-- Логотип і вступ -->
+<div id="intro" class="intro">
+  <div class="intro-content slide">
+    <div class="logo">
+      <svg width="300" height="390" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="rainbowGradient" gradientTransform="rotate(90)">
+            <stop offset="0%" style="stop-color:#ff007f;" />
+            <stop offset="16%" style="stop-color:#ff7f00;" />
+            <stop offset="33%" style="stop-color:#ffff00;" />
+            <stop offset="50%" style="stop-color:#00ff00;" />
+            <stop offset="66%" style="stop-color:#0000ff;" />
+            <stop offset="83%" style="stop-color:#4b0082;" />
+            <stop offset="100%" style="stop-color:#8b00ff;" />
+          </linearGradient>
+        </defs>
+        <circle cx="150" cy="110" r="90" stroke="url(#rainbowGradient)" stroke-width="18" fill="none"></circle>
+        <text x="150" y="280" text-anchor="middle" font-size="38" font-family="sans-serif" fill="#ffffff"
+          style="opacity: 1; text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);">Circle</text>
+        <text x="150" y="315" text-anchor="middle" font-size="26" font-family="sans-serif" fill="#ffffff"
+          style="opacity: 0.95; letter-spacing: 3px; text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);">GROUP</text>
+      </svg>
+    </div>
+    <p style="margin-top: -45px;">
+      Добро пожаловать в <strong>Circle Group</strong><br />
+      путешествия свободы самовыражения
+    </p>
+  </div>
+</div>
+
+<!-- Навигационная панель -->
+<header id="siteHeader" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 1px 10px;
+  display: none;
+  justify-content: center;
+  gap: 40px;
+  font-size: 14px;
+  font-weight: 200;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+">
+  <a href="#about" style="padding-top: 9px; display: inline-block;">О нас</a>
+  <a href="#tours" style="padding-top: 9px; display: inline-block;">Наш тур</a>
+  <a href="#contact" style="padding-top: 9px; display: inline-block;">Контакты</a>
+</header>
+<script>
+  // Появление хедера немного раньше (через 2 секунды)
+  setTimeout(() => {
+    document.getElementById("intro").classList.add("fade-out");
+    setTimeout(() => {
+      document.getElementById("mainContent").classList.add("visible");
+      document.getElementById("siteHeader").style.display = "flex";
+    }, 1000); // раньше было 1500 — теперь контент появляется быстрее
+  }, 2000); // заставка держится 2 сек вместо 2.5
+
+  // Скрытие/появление хедера при прокрутке
+  let lastScroll = 0;
+  const header = document.getElementById("siteHeader");
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > lastScroll && currentScroll > 60) {
+      header.style.transform = "translateY(-100%)"; // скрыть
+      header.style.opacity = "0";
+    } else {
+      header.style.transform = "translateY(0)"; // показать
+      header.style.opacity = "1";
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>  
+<!-- Основний контент -->
+<section id="tours" style="padding: 0; margin: 0; background: none; backdrop-filter: none; scroll-margin-top: 100px;">
+ <div id="mainContent" style="margin-top: 189px; text-align: center;">
+  <h2 style="font-size: 28px; font-weight: 600; margin-bottom: 24px;">Наш тур</h2>
+  <div style="
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    padding: 16px 32px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  ">
+    🗓️ 21 августа — 29 августа
+  </div>
+</div>
+ <!-- конец блока с датой -->
+<div style="height: 50px;"></div>
+<!-- JavaScript -->
+  <script>
+    setTimeout(() => {
+      const intro = document.getElementById("intro");
+      if (intro) {
+        intro.classList.add("fade-out");
+      }
+      setTimeout(() => {
+        const main = document.getElementById("mainContent");
+        if (main) {
+          main.classList.add("visible");
+        }
+      }, 800); // ⏱️ затримка між зникненням і появою
+    }, 2500);
+  </script>
+<script>
+  const header = document.getElementById("siteHeader");
+  let hideTimeout;
+
+  document.addEventListener("mousemove", (e) => {
+    if (e.clientY < 50) {
+      header.style.transform = "translateY(0)";
+      header.style.opacity = "1";
+      if (hideTimeout) clearTimeout(hideTimeout);
+    } else {
+      if (!hideTimeout) {
+        hideTimeout = setTimeout(() => {
+          header.style.transform = "translateY(-100%)";
+          header.style.opacity = "0";
+          hideTimeout = null;
+        }, 2000);
+      }
+    }
+  });
+</script>
+</body>
+</html>
+
+<!-- День 1 — Барселона -->
+<section id="day1"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">✨ День 1 — Барселона</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Мягкое прибытие, welcome-ужин, знакомство с группой и первый закат у моря.<br>
+    Прилет в Барселону, трансфер в стильный отель рядом с пляжем, отдых и вечерняя встреча с бокалом cava.
+  </p>
+
+  <!-- Кнопка по центру -->
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day1-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <!-- Скрытая дополнительная информация -->
+  <div id="day1-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 21 августа: Прибытие в Барселону / Знакомство и адаптация</strong></p>
+
+    <p>☀️ Весь день – день приезда и мягкой адаптации. Мы встречаем всех участников в аэропорту Барселоны (BCN) и организуем индивидуальный трансфер до отеля. Водитель будет ждать с табличкой, а координатор — на связи в WhatsApp/Telegram.</p>
+
+    <p><strong>🕐 Примерный тайминг дня:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>09:00–17:00 — Заезды, трансферы, заселение. При раннем прилете — пляж и встреча с координатором.</li>
+      <li>15:00–19:00 — Отдых, прогулки, рекомендации кафе и баров.</li>
+      <li>19:30 — Встреча группы, welcome-пакеты (вода, крем, программа, браслет).</li>
+      <li>20:30 — Приветственный ужин на террасе, игры и знакомство.</li>
+      <li>22:30 — Прогулка в гей-бар (по желанию) или отдых в отеле.</li>
+    </ul>
+
+    <p><strong>🔹 Включено в день:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>Индивидуальный трансфер из аэропорта</li>
+      <li>Проживание в отеле 4–5*</li>
+      <li>Ужин с вином</li>
+      <li>Welcome-пакет</li>
+      <li>Поддержка координатора</li>
+    </ul>
+
+    <p><strong>💡 Цель дня:</strong><br>
+      Мягкая адаптация, знакомство, ощущение заботы, безопасности и атмосферы тура.
+    </p>
+  </div>
+</section>
+
+<!-- Скрипт анимации + скрипт переключения -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day1 = document.getElementById("day1");
+      if (day1) {
+        day1.style.opacity = "1";
+        day1.style.transform = "translateY(0)";
+      }
+    }, 3500);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    if (block.style.display === "none" || block.style.display === "") {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  }
+</script>
+<!-- День 2 — ЛГБТ-Барселона -->
+<section id="day2"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🌈 День 2 — ЛГБТ-Барселона</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Истории свободы, прогулка по Eixample, пикник на гей-пляже и ночной бар-хоппинг.<br>
+    Узнаем о прайд-истории города и заглянем в культовые места.
+  </p>
+
+  <!-- Кнопка по центру -->
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day2-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <!-- Скрытый блок с деталями -->
+  <div id="day2-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 22 августа: ЛГБТ-Барселона / Знакомства, история, пляж и ночная жизнь</strong></p>
+
+    <p><strong>🕐 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>07:00–10:00 — Завтрак и утренний кофе</li>
+      <li>10:00–10:45 — Игра "2 правды — 1 ложь" на знакомство</li>
+      <li>11:00–13:00 — ЛГБТ-экскурсия по Eixample с местным гидом</li>
+      <li>13:00–14:30 — Обед в гей-френдли ресторане</li>
+      <li>14:30–17:30 — Свободное время: море, сон, прогулка</li>
+      <li>17:30–19:30 — Sunset-пикник на гей-пляже Mar Bella</li>
+      <li>20:30–22:00 — Welcome-коктейль на террасе</li>
+      <li>22:00 → ночь — Бар-хоппинг по гей-барам (по желанию)</li>
+    </ul>
+
+    <p><strong>🔹 Включено в день:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>Завтрак</li>
+      <li>Игра и знакомство</li>
+      <li>Экскурсия с гидом</li>
+      <li>Обед</li>
+      <li>Пляжный пикник</li>
+      <li>Welcome-коктейль</li>
+      <li>Бар-хоппинг</li>
+      <li>Поддержка координаторов</li>
+    </ul>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+      Раззнакомиться, погрузиться в атмосферу ЛГБТ-Барселоны и начать отдыхать свободно и красиво.
+    </p>
+  </div>
+</section>
+
+<!-- Скрипт -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day2 = document.getElementById("day2");
+      if (day2) {
+        day2.style.opacity = "1";
+        day2.style.transform = "translateY(0)";
+      }
+    }, 3800);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    if (block.style.display === "none" || block.style.display === "") {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  }
+</script>
+<!-- День 3 — Ситжес -->
+<section id="day3"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🌊 День 3 — Ситжес</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Морской бриз, арт-улицы и приватная прогулка на яхте с фруктами и вином.<br>
+    Вечером — прогулка по набережной и ужин с видом на закат.
+  </p>
+
+  <!-- Кнопка Подробнее -->
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day3-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <!-- Скрытый блок с деталями -->
+  <div id="day3-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 23 августа: Ситжес — море, яхта и вечерний отдых 🌊⛵️🍹</strong></p>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+      Погрузиться в атмосферу свободы и творчества Ситжеса, расслабиться на яхте и провести время с группой в непринужденной обстановке.
+    </p>
+
+    <p><strong>🕐 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>07:00–10:00 — Завтрак в Барселоне ☕️🥐</li>
+      <li>10:00–11:00 — Трансфер в Ситжес 🚌</li>
+      <li>11:00–13:00 — Пешая экскурсия по Ситжесу 🚶‍♂️🌴</li>
+      <li>13:00–14:30 — Обед у моря 🍤🍷</li>
+      <li>14:30–15:00 — Свободное время ☀️📸</li>
+      <li>15:00–16:00 — Заселение в отель 🏨</li>
+      <li>16:15–18:45 — Приватная прогулка на яхте ⛵️🍓🍾</li>
+      <li>19:00–20:30 — Отдых в отеле 🛋️</li>
+      <li>20:30–22:00 — Ужин в гей-френдли ресторане 🍽️🌈</li>
+      <li>22:00 и далее — Бар-хоппинг или свободное время 🍸🎉</li>
+    </ul>
+
+    <p><strong>🔹 Включено в программу:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>✅ Завтрак ☕️</li>
+      <li>✅ Трансфер Барселона — Ситжес 🚌</li>
+      <li>✅ Пешая экскурсия 🚶‍♂️</li>
+      <li>✅ Обед у моря 🍽️</li>
+      <li>✅ Заселение в отель 🏨</li>
+      <li>✅ Прогулка на яхте с напитками и фруктами ⛵️🍾</li>
+      <li>✅ Ужин в гей-френдли ресторане 🌈</li>
+      <li>✅ Сопровождение координаторов 👬</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Скрипт -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day3 = document.getElementById("day3");
+      if (day3) {
+        day3.style.opacity = "1";
+        day3.style.transform = "translateY(0)";
+      }
+    }, 4100);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    if (block.style.display === "none" || block.style.display === "") {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  }
+</script>
+<!-- День 4 — Валенсия через винодельню -->
+<section id="day4"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🍇 День 4 — Валенсия через винодельню</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Переезд с остановкой в винодельне, дегустация местных сортов.<br>
+    Заселение в бутик-отель, вечерняя прогулка по старому городу.
+  </p>
+
+  <!-- Кнопка Подробнее -->
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day4-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <!-- Скрытый блок -->
+  <div id="day4-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 24 августа: Переезд в Валенсию через винодельню 🍇🍷🏞️</strong></p>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+    Ощутить красоту испанской природы, насладиться дегустацией вина и познакомиться с культурой и архитектурой Валенсии.
+    </p>
+
+    <p><strong>🕐 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>08:00–10:00 — Завтрак в отеле в Ситжесе ☕️🥐</li>
+      <li>10:00–11:00 — Отъезд из Ситжеса, начало трансфера в Валенсию 🚌</li>
+      <li>11:00–13:30 — Остановка на винодельне с дегустацией вина и обедом 🍇🍷🍴</li>
+      <li>13:30–16:00 — Продолжение трансфера до Валенсии 🚌</li>
+      <li>16:00–17:00 — Заселение в отель в Валенсии 🏨</li>
+      <li>17:00–19:00 — Пешая прогулка по комплексу «Город искусств и наук» 🚶‍♂️🏛️</li>
+      <li>19:00–20:30 — Ужин в ресторане с местной кухней 🍽️</li>
+      <li>20:30 и далее — Свободное время или лёгкая вечерняя прогулка 🌙</li>
+    </ul>
+
+    <p><strong>🔹 Включено в программу:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>✅ Завтрак в отеле ☕️</li>
+      <li>✅ Трансфер Ситжес — винодельня — Валенсия 🚌</li>
+      <li>✅ Экскурсия и дегустация вина на винодельне 🍷</li>
+      <li>✅ Обед на винодельне 🍴</li>
+      <li>✅ Заселение в отель 🏨</li>
+      <li>✅ Пешая прогулка по Ciudad de las Artes y las Ciencias 🚶‍♂️</li>
+      <li>✅ Ужин в ресторане 🍽️</li>
+      <li>✅ Сопровождение координаторов 👬</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day4 = document.getElementById("day4");
+      if (day4) {
+        day4.style.opacity = "1";
+        day4.style.transform = "translateY(0)";
+      }
+    }, 4300);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    block.style.display = (block.style.display === "none" || block.style.display === "") ? "block" : "none";
+  }
+</script>
+<!-- День 5 — Валенсия -->
+<section id="day5"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🛺 День 5 — Валенсия</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Тур на тук-туках, прогулки, стильный обед и вечерняя встреча на закате.
+  </p>
+
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day5-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <div id="day5-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 25 августа: Валенсия — стиль, комфорт и вечерние огни 🌇🛺🛍️</strong></p>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+    Прочувствовать настроение Валенсии — уютной, яркой, современной. Погрузиться в атмосферу средиземноморского города через необычные маршруты, немного шопинга и красивый вечерний вайб.
+    </p>
+
+    <p><strong>🕘 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>07:00–10:00 — Завтрак в отеле ☕️🥐</li>
+      <li>10:30–12:30 — Тур на тук-туках по Валенсии 🛺🌴</li>
+      <li>12:30–14:00 — Свободное время для шопинга и прогулок 🛍️👟</li>
+      <li>14:00–15:30 — Обед в стильном кафе 🍽️🌿</li>
+      <li>15:30–18:30 — Отдых в отеле 🛌🧖‍♂️</li>
+      <li>18:30–20:00 — Вечерняя встреча: аперитив и прогулка на закате 🌇🍸</li>
+      <li>20:00–22:00 — Ужин в гей-френдли ресторане 🍷🌈</li>
+      <li>22:00 и далее — Вечер на выбор: бар, клуб или просто отдых 🎉🛋️</li>
+    </ul>
+
+    <p><strong>✅ Что включено:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>Завтрак в отеле ☕️</li>
+      <li>Тур на тук-туках по Валенсии 🛺</li>
+      <li>Сопровождение координаторов 👬</li>
+      <li>Обед 🍴</li>
+      <li>Ужин в гей-френдли ресторане 🌈</li>
+      <li>Вечерний аперитив 🍸</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day5 = document.getElementById("day5");
+      if (day5) {
+        day5.style.opacity = "1";
+        day5.style.transform = "translateY(0)";
+      }
+    }, 4500);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    block.style.display = (block.style.display === "none" || block.style.display === "") ? "block" : "none";
+  }
+</script>
+<!-- День 6 — Аликанте -->
+<section id="day6"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🌴 День 6 — Аликанте</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">Лёгкий день у моря, расслабляющий отдых, прогулка по старому городу, вечерняя вечеринка у бассейна.</p>
+
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day6-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <div id="day6-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 26 августа: Валенсия → Аликанте — солнце, море и лёгкость 🏖️☀️🚶‍♂️</strong></p>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+    Переезд в уютный прибрежный Аликанте, неспешная адаптация, море, прогулки и мягкий ритм для отдыха и восстановления.
+    </p>
+
+    <p><strong>🕘 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>09:00–10:00 — Завтрак в отеле в Валенсии ☕️🥐</li>
+      <li>10:30–13:30 — Трансфер в Аликанте 🚌</li>
+      <li>13:30–14:30 — Ланч и лёгкая прогулка по набережной Аликанте 🍽️🌴</li>
+      <li>14:30–15:00 — Заселение: сдача багажа в отеле 🧳</li>
+      <li>15:00–17:30 — Отдых и свободное время в отеле 🛌🌊</li>
+      <li>18:00–20:00 — Групповой ужин на свежем воздухе 🍷🍽️</li>
+      <li>20:00 и далее — Спокойный вечер или прогулка у моря 🌙🚶‍♂️</li>
+    </ul>
+
+    <p><strong>✅ Что включено:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>Завтрак в отеле в Валенсии ☕️</li>
+      <li>Трансфер Валенсия → Аликанте 🚌</li>
+      <li>Обед 🍽️</li>
+      <li>Заселение в отель 🏨</li>
+      <li>Ужин в Аликанте 🌆</li>
+      <li>Сопровождение координаторов 👬</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day6 = document.getElementById("day6");
+      if (day6) {
+        day6.style.opacity = "1";
+        day6.style.transform = "translateY(0)";
+      }
+    }, 4700);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    block.style.display = (block.style.display === "none" || block.style.display === "") ? "block" : "none";
+  }
+</script>
+<!-- День 7 — Cabo de Gata & Малага -->
+<section id="day7"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🏞️ День 7 — Cabo de Gata & Малага</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Поездка через природный парк, фотоостановки у смотровых площадок, приезжаем в Малагу к ужину.
+  </p>
+
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day7-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <div id="day7-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 27 августа: Аликанте → Cabo de Gata → Малага</strong><br>
+    Смена ритма, природное вдохновение и забота о себе 🌴🌊🧖‍♂️</p>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+    Погрузиться в живую, яркую красоту природы, замедлиться и почувствовать тело, вдохновиться и расслабиться.
+    </p>
+
+    <p><strong>🕘 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>07:00–08:30 — Ранний завтрак в отеле в Аликанте ☕️🥐</li>
+      <li>08:30–12:30 — Трансфер в Parque Natural del Cabo de Gata 🚌</li>
+      <li>12:30–14:00 — Прогулка по Cabo de Gata и ланч у моря 🍽️🌊<br>
+        – Белоснежные деревушки<br>
+        – Смотровые площадки<br>
+        – Лёгкий обед (рыба, салаты, тапас, вино)
+      </li>
+      <li>14:00–17:30 — Продолжение трансфера в Малагу 🚌</li>
+      <li>17:30–18:30 — Заселение в отель 🏨</li>
+      <li>18:30–20:00 — Spa-программа: пар, вода, уход за телом 🧖‍♂️</li>
+      <li>20:30–22:30 — Ужин в андалусской таверне 🍷🍴</li>
+      <li>22:30 и далее — Прогулка по ночной набережной или свободное время 🌙🚶‍♂️</li>
+    </ul>
+
+    <p><strong>✅ Что включено:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>Завтрак в Аликанте ☕️</li>
+      <li>Трансфер Аликанте → Малага 🚌</li>
+      <li>Природная остановка в Cabo de Gata 🌋</li>
+      <li>Ланч у моря 🍴</li>
+      <li>Заселение в отель 🏨</li>
+      <li>Spa-программа 🧖‍♂️</li>
+      <li>Ужин 🍷</li>
+      <li>Сопровождение координаторов 👬</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day7 = document.getElementById("day7");
+      if (day7) {
+        day7.style.opacity = "1";
+        day7.style.transform = "translateY(0)";
+      }
+    }, 4900);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    block.style.display = (block.style.display === "none" || block.style.display === "") ? "block" : "none";
+  }
+</script>
+<!-- День 8 — Андалусия & лодка -->
+<section id="day8"
+  style="
+    margin: 32px auto;
+    padding: 10px 16px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">⛰️ День 8 — Андалусия & лодка</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Утренний визит в Caminito del Rey, далее — винная деревушка с обедом.<br>
+    Вечером — финальная boat party.
+  </p>
+
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day8-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <div id="day8-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 28 августа: Малага — горы, белые деревушки и завершающий ужин ⛰️🏘️🌅</strong></p>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+    Ощутить дух Андалусии – через природу, аутентичные поселки и захватывающие пейзажи. День приключений, внутреннего обновления и вечерней магии на воде.
+    </p>
+
+    <p><strong>🕘 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>08:00–09:00 — Ранний завтрак в отеле 🥐☕</li>
+      <li>09:00–16:00 — Экскурсия “Caminito del Rey + Белые деревушки + тапас” ⛰️🍷<br>
+        – Прогулка по знаменитой тропе короля (легкий актив, безопасно)<br>
+        – Посещение традиционной андалусской деревушки<br>
+        – Обед с тапас и вином в местной таверне<br>
+        – Фото-стопы и виды, которые хочется запомнить навсегда
+      </li>
+      <li>16:00–17:30 — Возвращение в отель, отдых 🛌🛀</li>
+      <li>19:30–21:00 — Завершающий ужин дня в ресторане у моря 🍽️🍷</li>
+      <li>После 22:00 — Ночной бар, прогулка или отдых по желанию 🌙</li>
+    </ul>
+
+    <p><strong>✅ Что включено:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>Завтрак в отеле ☕</li>
+      <li>Экскурсия “Caminito del Rey + деревня + тапас” (с трансфером и обедом) ⛰️</li>
+      <li>Sunset boat tour 🚤</li>
+      <li>Ужин у моря 🍷</li>
+      <li>Сопровождение координаторов 👬</li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day8 = document.getElementById("day8");
+      if (day8) {
+        day8.style.opacity = "1";
+        day8.style.transform = "translateY(0)";
+      }
+    }, 5100);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    block.style.display = (block.style.display === "none" || block.style.display === "") ? "block" : "none";
+  }
+</script>
+<!-- День 9 — Малага -->
+<section id="day9" style="
+  margin-bottom: 32px;
+  padding: 10px 16px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+">
+  <h3 style="color: white; font-size: 18px; margin-bottom: 8px;">🧽 День 9 — Малага</h3>
+  <p style="color: white; line-height: 1.5; font-size: 15px;">
+    Финальный завтрак, обмен контактами, фото, трансферы в аэропорт.<br>
+    Завершение путешествия с лёгким сердцем и вдохновением.
+  </p>
+
+  <div style="text-align: center; margin-top: 12px;">
+    <button onclick="toggleDetails('day9-details')" style="background: none; border: 1px solid white; color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+      Подробнее
+    </button>
+  </div>
+
+  <div id="day9-details" style="display: none; margin-top: 16px; color: white; font-size: 15px; line-height: 1.6;">
+    <p><strong>📅 29 августа: Малага — прощание, объятия и лёгкость ✈️💬🤍</strong></p>
+
+    <p><strong>🎯 Цель дня:</strong><br>
+    Завершить это путешествие с теплом в сердце, красивыми фото и ощущением, что вы стали ближе, чем были в начале.
+    </p>
+
+    <p><strong>🕘 Расписание:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>08:00–10:00 — Завтрак в отеле ☕🥐<br>
+        Неспешное утро. Чай, кофе, разговоры за столом и лёгкое прощание с утренней рутиной тура.
+      </li>
+      <li>10:00–11:00 — Финальная круговая встреча 🤍<br>
+        🗣️ Делимся впечатлениями<br>
+        🎁 Что берём с собой (внутренне)<br>
+        🌟 Пожелания друг другу<br>
+        📸 Общее фото на память
+      </li>
+      <li>До 12:00 — Чек-аут из отеля 🧳<br>
+        Багаж можно оставить на ресепшене до трансфера или вылета.
+      </li>
+      <li>До вылета — свободное время в Малаге:<br>
+        ☕ Кофе на террасе<br>
+        🏖️ Прогулка по пляжу<br>
+        🛍️ Шопинг сувениров<br>
+        📷 Последние фото
+      </li>
+      <li>Индивидуальный трансфер в аэропорт ✈️<br>
+        Организуется по времени ваших рейсов. Возможны объединённые трансферы.
+      </li>
+    </ul>
+
+    <p><strong>✅ Что включено:</strong></p>
+    <ul style="padding-left: 20px; list-style-type: disc;">
+      <li>Завтрак в отеле ☕</li>
+      <li>Финальная встреча и общее фото 🧡</li>
+      <li>Индивидуальный трансфер в аэропорт ✈️</li>
+      <li>Поддержка координаторов до момента вылета 👬</li>
+    </ul>
+
+    <p style="font-style: italic;">Этот день — не конец, а начало новых путешествий и дружбы ✨</p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const day9 = document.getElementById("day9");
+      if (day9) {
+        day9.style.opacity = "1";
+        day9.style.transform = "translateY(0)";
+      }
+    }, 5300);
+  });
+
+  function toggleDetails(id) {
+    const block = document.getElementById(id);
+    block.style.display = (block.style.display === "none" || block.style.display === "") ? "block" : "none";
+  }
+</script>
+<!-- Заголовок вне стеклянного блока -->
+<h2 style="
+  color: white;
+  font-size: 22px;
+  margin: 80px auto 24px;
+  text-align: center;
+  max-width: 92%;
+">
+  О нас
+</h2>
+
+<!-- Стеклянный блок -->
+<section id="about" style="
+  padding: 24px 16px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  max-width: 92%;
+  margin: 0 auto 48px auto;
+  box-sizing: border-box;
+">
+
+  <div style="color: white; font-size: 15px; line-height: 1.6; text-align: left;">
+    <p style="margin-bottom: 16px;">
+      Мы создаем не просто путешествия. Мы создаем пространства, где можно быть собой, чувствовать 💛, наслаждаться 🌅 и дышать полной грудью 🌬️.
+    </p>
+
+    <p style="margin-bottom: 16px;">
+      <strong>Circle Group</strong> — это команда людей, которые искренне любят своё дело 💫. Мы объездили десятки стран ✈️ и поняли: больше всего в поездке важны ощущения, атмосфера, люди и тонкие детали, из которых рождаются настоящие воспоминания 📸.
+    </p>
+
+    <p style="margin-bottom: 16px;">
+      Мы организуем медленные, осознанные, насыщенные впечатлениями туры — без суеты и спешки. Каждое утро начинается с заботы ☕, каждый вечер заканчивается теплом.
+    </p>
+
+    <ul style="margin-bottom: 16px; padding-left: 20px; list-style-type: disc;">
+      <li>🛏️ Комфорт, стиль и вкус</li>
+      <li>🌈 Свободу быть собой без объяснений</li>
+      <li>🌿 Лёгкость, эстетика и живые впечатления</li>
+      <li>🔇 Тишину внутри и глубокие разговоры снаружи</li>
+      <li>🫂 Круг “своих” — тонких, чувствительных и умных людей</li>
+    </ul>
+
+    <p style="margin-bottom: 16px;">
+      Мы знаем, что значит жить в странах, где нужно прятаться 🧳. Мы понимаем, как важно просто почувствовать, что тебя принимают и понимают без слов 🤍.
+    </p>
+
+    <p style="text-align: center;">
+      🔆 Присоединяйтесь.<br />
+      Мы бережно откроем вам юг Европы 🇪🇸 и весь остальной мир 🌍 —<br />
+      шаг за шагом, в красивом ритме
+    </p>
+  </div>
+</section>
+
+<!-- Контактные иконки (адаптивно для мобильных) -->
+<div style="
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 60px auto 40px;
+">
+  <!-- Instagram -->
+  <a href="https://instagram.com/circlegroup_tour" target="_blank" title="Instagram">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" style="width: 48px; height: 48px;" class="contact-icon">
+  </a>
+
+  <!-- Telegram -->
+  <a href="https://t.me/circlegroup_tour" target="_blank" title="Telegram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="width: 48px; height: 48px;" class="contact-icon">
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/380633856959" target="_blank" title="WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="width: 48px; height: 48px;" class="contact-icon">
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:circlegroup.tour@gmail.com" target="_blank" title="Email">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="width: 48px; height: 48px;" class="contact-icon">
+  </a>
+</div>
+
+<!-- Медиа-запрос для мобильных -->
+<style>
+  @media (max-width: 480px) {
+    .contact-icon {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+</style>
+</body>
+</html>
