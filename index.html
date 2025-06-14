@@ -24,22 +24,33 @@
     }
 
     html, body {
-      height: 100%;
-      font-family: 'Helvetica Neue', sans-serif;
-      color: white;
-      scroll-behavior: smooth;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover fixed no-repeat;
-    }
+  	height: 100%;
+  	font-family: 'Helvetica Neue', sans-serif;
+  	color: white;
+  	scroll-behavior: smooth;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	background: none;
+	}
+	#background {
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  	z-index: -1;
+  	background: url('https://mediaim.expedia.com/destination/1/	fb0beeff7b355941463be953c7c49699.jpg') center center / cover no-repeat;
+  	background-attachment: fixed;
+	}
 
-    @media (max-width: 768px) {
-      body {
-        background-attachment: scroll;
-      }
-    }
-
+	@media (max-width: 768px) {
+  	#background {
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') 	center center / cover no-repeat;
+    background-attachment: scroll;
+  	}
+	}
+   
     /* Intro (заставка) */
     .intro {
       position: fixed;
@@ -167,6 +178,9 @@
   </style>
 </head>
 <body>
+<!-- 🔹 Статичный фон -->
+  <div id="background"></div>
+
 <!-- Логотип і вступ -->
 <div id="intro" class="intro">
   <div class="intro-content slide">
@@ -1114,9 +1128,9 @@
 </section>
 <!-- Медиа-запрос для мобильных -->
 <style>
-  @media (max-width: 480px) {
+ @media (max-width: 480px) {
   body {
-    background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center center / cover no-repeat;
     background-attachment: scroll;
   }
 
@@ -1124,8 +1138,7 @@
     width: 40px !important;
     height: 40px !important;
   }
-}
-</style>
+}</style>
 <script>
   const header = document.getElementById("siteHeader"); // ✅ объявляем ОДИН РАЗ
   const intro = document.getElementById("intro");
