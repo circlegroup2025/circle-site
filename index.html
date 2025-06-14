@@ -1115,11 +1115,16 @@
 <!-- Медиа-запрос для мобильных -->
 <style>
   @media (max-width: 480px) {
-    .contact-icon {
-      width: 40px !important;
-      height: 40px !important;
-    }
+  body {
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center center / cover no-repeat;
+    background-attachment: scroll;
   }
+
+  .contact-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
 </style>
 <script>
   const header = document.getElementById("siteHeader"); // ✅ объявляем ОДИН РАЗ
