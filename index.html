@@ -50,42 +50,42 @@
     background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover no-repeat;
     background-attachment: scroll;
   }
-}    /* Intro (заставка) */
-    .intro {
-      position: fixed;
-      inset: 0;
-      background: inherit;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      z-index: 999;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
+}    
 
-    .intro.fade-out {
-      animation: fadeOut 1s ease forwards;
-    }
+/* Intro (заставка) */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 999;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  transition: opacity 1s ease, visibility 1s ease;
+  visibility: visible;
+  pointer-events: auto;
+}
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+.intro.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        pointer-events: none;
-      }
-    }
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
 
-    .logo {
-      margin-bottom: 20px;
-      transform: translateY(30px);
-      opacity: 0;
-      animation: slideUp 1s ease 0.3s forwards;
-    }
+.logo {
+  margin-bottom: 20px;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 1s ease 0.3s forwards;
+}
 
     .intro p {
       font-size: 1.5rem;
