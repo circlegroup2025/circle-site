@@ -78,52 +78,39 @@ body {
   	.intro {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-
   z-index: 999;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   transition: opacity 1s ease, visibility 1s ease;
   visibility: visible;
   pointer-events: auto;
-  overflow: hidden;
 }
 
-	.intro.fade-out {
-  	opacity: 0;
-  	visibility: hidden;
-  	pointer-events: none;
-	}
+.intro.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
-	@keyframes fadeIn {
-  	to { opacity: 1; }
-	}
+.logo {
+  margin-bottom: 20px;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 1s ease 0.3s forwards;
+}
 
-	.logo {
-  	margin-bottom: 20px;
-  	transform: translateY(30px);
-  	opacity: 0;
-  	animation: slideUp 1s ease 0.3s forwards;
-	}
-
-    .intro p {
-      font-size: 1.5rem;
-      padding: 20px;
-      opacity: 0;
-      animation: fadeText 1s ease 0.8s forwards;
-    }
+.intro p {
+  font-size: 1.5rem;
+  padding: 20px;
+  opacity: 0;
+  animation: fadeText 1s ease 0.8s forwards;
+}
 
     @keyframes slideUp {
       to {
