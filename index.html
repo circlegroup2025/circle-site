@@ -2,9 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Circle Group</title>
-	
 	<!-- Favicon для браузеров -->
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -29,15 +28,16 @@
   <meta property="og:image" content="https://circlegroup.fun/preview.jpg" />
   <meta property="og:url" content="https://circlegroup.fun" />
   <meta property="og:type" content="website" />
-<!-- 🖼️ Preload фонового изображения -->
-  <link rel="preload" as="image" href="https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg">
-
 
   <!-- Стили -->
- <style>
-	html, body {
-  margin: 0;
-  padding: 0;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
   height: 100%;
   font-family: 'Helvetica Neue', sans-serif;
   color: white;
@@ -45,12 +45,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  -webkit-font-smoothing: antialiased;
-  background: none; /* ⬅️ фон отключён, чтобы не конфликтовал с #background */
-}
-
-body {
-  padding-top: env(safe-area-inset-top); /* для поддержки вырезов на iPhone */
+  background: none;
 }
 
 #background {
@@ -66,16 +61,13 @@ body {
 
 @media (max-width: 768px) {
   #background {
-    background-attachment: scroll; /* ✅ правильное поведение на мобильных */
+    background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover no-repeat;
+    background-attachment: scroll;
   }
-}
-/* Обнуляющие стили */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-  	.intro {
+}    
+
+/* Intro (заставка) */
+.intro {
   position: fixed;
   inset: 0;
   background: transparent;
@@ -98,6 +90,10 @@ body {
   pointer-events: none;
 }
 
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
 .logo {
   margin-bottom: 20px;
   transform: translateY(30px);
@@ -105,12 +101,12 @@ body {
   animation: slideUp 1s ease 0.3s forwards;
 }
 
-.intro p {
-  font-size: 1.5rem;
-  padding: 20px;
-  opacity: 0;
-  animation: fadeText 1s ease 0.8s forwards;
-}
+    .intro p {
+      font-size: 1.5rem;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeText 1s ease 0.8s forwards;
+    }
 
     @keyframes slideUp {
       to {
@@ -213,7 +209,8 @@ body {
   </style>
 </head>
 <body>
-<!-- 🔹 Статичный фон -->
+
+	<!-- 🔹 Статичный фон -->
   <div id="background"></div>
 
 <!-- Логотип і вступ -->
