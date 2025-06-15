@@ -81,19 +81,25 @@ body {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg') center center / cover no-repeat;
+  background-image: url('https://mediaim.expedia.com/destination/1/fb0beeff7b355941463be953c7c49699.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+
   z-index: 999;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   transition: opacity 1s ease, visibility 1s ease;
   visibility: visible;
   pointer-events: auto;
+  overflow: hidden;
 }
 
 	.intro.fade-out {
